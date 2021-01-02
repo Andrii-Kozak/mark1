@@ -1,6 +1,5 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 $gray-medium-light: #eaeaea;
 /* universal */
 body {
@@ -55,41 +54,51 @@ p {
 /* header */
 .navbar-inverse {
   background-color: #4c4c4d99;
-  box-shadow: 0 0 9px 1px #263b2bbf;
+  box-shadow: 0 0 10px -3px #ce431a;
   border-color: #a2a2a299;
 }
 
 #logo {
   float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  text-decoration: none;
+  padding-top: 10px;
+
+  img {
+    width: 100px;
+  }
 
   &:hover {
-    color: #ddffe5bf;
-    text-decoration: none;
+    opacity: 0.5;
   }
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #fff;
+  color: #ce431a;
+
   &:hover {
-    color: #ddffe5bf;
+    color: #fff;
   }
 }
 
 /* footer */
 footer {
   margin-top: 45px;
-  box-shadow: 0 0 30px -2px #263b2bbf;
+  box-shadow: 0 0 10px -3px #ce431a;
   position: absolute;
   bottom: 0;
   width: 100%;
   line-height: 40px;
   background-color: #b4b4b4;
+}
+
+footer a {
+  color: #555;
+
+  &:hover {
+    color: #222;
+  }
+}
+
+.index-logo {
+  width: 200px;
+  padding-bottom: 20px;
 }
