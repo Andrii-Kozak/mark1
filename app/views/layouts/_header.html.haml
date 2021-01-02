@@ -2,12 +2,12 @@
   .container
     = link_to image_tag("rails.svg", alt: "Rails logo"), root_path, id: "logo"
     %nav
-      %ul.nav.navbar-nav.navbar-right
-        %li
+      %ul.nav.navbar-right.list-inline
+        %li.list-inline-item
           %a{:href => "#"}
-            %span.glyphicon.glyphicon-user
+            %span.fas.fa-user-check
             Sign Up
-        %li
+        %li.list-inline-item.last
           %a{:href => "#"}
-            %span.glyphicon.glyphicon-log-in
+            %span.fas.fa-sign-in-alt
             Login
