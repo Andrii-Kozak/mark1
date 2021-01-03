@@ -1,0 +1,13 @@
+header.navbar.navbar-fixed-top.navbar-inverse
+  .container
+    = link_to image_tag("rails.svg", alt: "Rails logo"), root_path, id: "logo"
+    nav
+      ul.nav.navbar-right.list-inline
+        li.list-inline-item
+          a[href="#"]
+            span.fas.fa-user-check
+            |  Sign Up
+        li.list-inline-item.last
+          a[href="#"]
+            span.fas.fa-sign-in-alt
+            |  Login
