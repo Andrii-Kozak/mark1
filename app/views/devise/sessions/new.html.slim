@@ -1,0 +1,43 @@
+- provide(:title, "Login")
+.jumbotron
+  .d-flex.justify-content-center
+    .registration
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .container
+          .d-flex.justify-content-center.h-100
+            .card
+              .card-header
+                h3
+                  |Login
+              .card-body
+                form
+                  .input-group.form-group
+                    .input-group-prepend
+                      span.input-group-text
+                        i.fas.fa-user
+                    .field
+                      = f.email_field :email, autofocus: true, autocomplete: "email"
+                  .input-group.form-group
+                    .input-group-prepend
+                      span.input-group-text
+                        i.fas.fa-key
+                    .field
+                      = f.password_field :password, autocomplete: "current-password"
+                  - if devise_mapping.rememberable?
+                    .field
+                      = f.check_box :remember_me
+                      = f.label :remember_me
+                  .d-flex.justify-content-center.mt-2
+                    .actions
+                      = f.submit "Login"
+              .d-flex.justify-content-center
+                | or sign up with:
+              .field.d-flex.justify-content-center.p-3
+                a.light-blue-text.mx-2[type="button"]
+                  i.fab.fa-google.fa-lg
+                a.light-blue-text.mx-2[type="button"]
+                  i.fab.fa-facebook-f.fa-lg
+              .card-footer
+                .d-flex.justify-content-center.links
+                  | Don't have an account?
+                = render "devise/shared/links"

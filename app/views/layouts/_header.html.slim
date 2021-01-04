@@ -3,11 +3,20 @@ header.navbar.navbar-fixed-top.navbar-inverse
     = link_to image_tag("rails.svg", alt: "Rails logo"), root_path, id: "logo"
     nav
       ul.nav.navbar-right.list-inline
-        li.list-inline-item
-          a[href="#"]
-            span.fas.fa-user-check
-            |  Sign Up
-        li.list-inline-item.last
-          a[href="#"]
-            span.fas.fa-sign-in-alt
-            |  Login
+        - if user_signed_in?
+          li.list-inline-item
+            = link_to destroy_user_session_path, method: :delete do
+              span.fas.fa-sign-out-alt
+              | Sign out
+              end
+        - else
+          li.list-inline-item
+            = link_to new_user_registration_path, method: :get do
+              span.fas.fa-user-check
+              | Sign Up
+              end
+          li.list-inline-item.last
+            = link_to new_user_session_path, method: :get do
+              span.fas.fa-sign-in-alt
+              |  Login
+              end
