@@ -1,0 +1,49 @@
+.information {
+  text-align: center;
+  padding: 5%;
+}
+
+.my_photo {
+    width: 400px;
+    border-radius: 50%;
+}
+
+.profile p {
+  text-align: justify;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.item {
+  padding: 20px 160px;
+  height: 250px;
+  display: inline-block;
+  transition: 0.6s;
+}
+
+.item img {
+  padding-top: 40px;
+  width: 128px;
+}
+
+.btn {
+  background-color: #112d4e;
+  border-radius: 8px;
+  color: #f9f7f7;
+  font-weight: normal;
+  padding: 10px;
+  display: block;
+  margin: 40px auto 0;
+  width: 140px;
+}
+
+.btn:hover {
+  background-color: #3f72af;
+  color: #f9f7f7;
+}
+
+.about-text {
+  font-family: 'Montserrat', sans-serif;
+font-size: 3rem;
+color: #3f72af;
+}
