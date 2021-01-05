@@ -1,11 +1,10 @@
-# frozen_string_literal: true
-
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 
 require 'spec_helper'
 require 'rspec/rails'
 require 'database_cleaner'
+require 'factory_bot'
 
 # Require support files
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }

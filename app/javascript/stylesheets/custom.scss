@@ -51,9 +51,7 @@ p {
 }
 /* header */
 .navbar-inverse {
-  background-color: #4c4c4d99;
   box-shadow: 0 0 10px -3px #ce431a;
-  border-color: #a2a2a299;
 }
 
 #logo {
@@ -69,7 +67,7 @@ p {
   }
 }
 .nav.navbar-right.list-inline > li > a {
-  color: #a23212bf;
+  color: #ce431a;
 
   &:hover {
     color: #fff;
@@ -90,15 +88,20 @@ footer {
   bottom: 0;
   width: 100%;
   line-height: 40px;
-  background-color: #b4b4b4;
+  background-color: #343a40;
 }
 
-footer a {
-  color: #555;
+.link-text, footer a {
+  color: #ce431a;
+  margin-left: 10px;
 
   &:hover {
-    color: #222;
+    color: #fff;
+    text-decoration: none;
   }
+}
+.text-footer {
+  color: #fff;
 }
 
 .index-logo {
@@ -109,6 +112,7 @@ footer a {
 
 .jumbotron {
   margin-top: 20px;
+  background-color: #adb5bdc9;
 }
 
 .registration {
@@ -120,7 +124,7 @@ footer a {
 .card-footer a {
   color: rgba(0, 123, 255, 0.81);
   &:hover {
-    color: #a23212bf;
+    color: #ce431a;
     text-decoration: none;
   }
 }

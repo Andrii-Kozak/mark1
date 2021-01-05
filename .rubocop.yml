@@ -25,6 +25,7 @@ Rails/FilePath:
 
 RSpec/LetSetup:
   Exclude:
+    - 'spec/models/user_spec.rb'
 
 
 RSpec/UnspecifiedException:
