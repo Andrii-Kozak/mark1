@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -32,6 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap-sass'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'rails_admin'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
