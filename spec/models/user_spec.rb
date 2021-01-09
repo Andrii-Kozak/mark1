@@ -39,3 +39,26 @@ RSpec.describe User, type: :model do
     it { is_expected.not_to allow_value('invali-email.com').for(:email) }
   end
 end
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :bigint           not null, primary key
+#  email                  :string(254)      not null
+#  encrypted_password     :string           default(""), not null
+#  first_name             :string(50)       not null
+#  last_name              :string(50)       not null
+#  provider               :string
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string
+#  uid                    :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#

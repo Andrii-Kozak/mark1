@@ -33,9 +33,9 @@
               .d-flex.justify-content-center
                 | or sign up with:
               .field.d-flex.justify-content-center.p-3
-                a.light-blue-text.mx-2[type="button"]
+                = link_to user_google_oauth2_omniauth_authorize_path, class: 'light-blue-text mx-2'
                   i.fab.fa-google.fa-lg
-                a.light-blue-text.mx-2[type="button"]
+                = link_to user_facebook_omniauth_authorize_path, class: 'light-blue-text mx-2'
                   i.fab.fa-facebook-f.fa-lg
               .card-footer
                 .d-flex.justify-content-center.links

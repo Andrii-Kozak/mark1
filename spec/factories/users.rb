@@ -16,9 +16,11 @@ end
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string(50)       not null
 #  last_name              :string(50)       not null
+#  provider               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  uid                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
