@@ -11,12 +11,12 @@ header.navbar.navbar-fixed-top.navbar-dark.bg-dark.navbar-inverse
               end
         - else
           li.list-inline-item
-            = link_to new_user_registration_path, method: :get do
+            = link_to new_user_registration_path do
               span.fas.fa-user-check
               | Sign Up
               end
           li.list-inline-item.last
-            = link_to new_user_session_path, method: :get do
+            = link_to new_user_session_path do
               span.fas.fa-sign-in-alt
               |  Login
               end
