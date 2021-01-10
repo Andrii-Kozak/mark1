@@ -1,0 +1,17 @@
+- provide(:title, @user.full_name)
+.jumbotron
+  .row.centered-form.center-block
+    .container.col-md-6
+      .card-user
+        .user
+          .row
+            .col-lg-5
+              .profile-image
+                img[src="https://bootdey.com/img/Content/avatar/avatar7.png" alt='Image']
+            .col-lg-7
+              h4.m-t-0.m-b-0
+                strong = @user.full_name
+              span = @user.email
+              .row
+                = link_to 'Edit User', edit_user_path, class: "btn"
+                = link_to 'Delete User',  @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn"
