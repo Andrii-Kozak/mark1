@@ -33,8 +33,13 @@
   font-weight: normal;
   padding: 10px;
   display: block;
+  margin: auto 0;
+  width: 110px;
+  padding: 5px;
+}
+
+.btn-user{
   margin: 40px auto 0;
-  width: 140px;
 }
 
 .btn:hover {

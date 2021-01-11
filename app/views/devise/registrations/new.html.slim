@@ -23,7 +23,7 @@
                       span.input-group-text
                         i.fas.fa-user
                     .field
-                      = f.text_field :last_name, autofocus: true, placeholder: 'last name', autocomplete: "last_name"    
+                      = f.text_field :last_name, autofocus: true, placeholder: 'last name', autocomplete: "last_name"
                   .input-group.form-group
                     .input-group-prepend
                       span.input-group-text
@@ -44,4 +44,4 @@
                       = f.password_field :password_confirmation, placeholder: 'password confirmation', autocomplete: "new-password"
                   .d-flex.justify-content-center
                     .actions
-                      = f.submit "Sign Up"
+                      = f.submit "Sign Up", class: "btn"

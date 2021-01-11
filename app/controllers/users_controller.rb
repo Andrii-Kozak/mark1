@@ -10,9 +10,12 @@ class UsersController < ApplicationController
   def edit; end
 
   def destroy
-    @user.destroy
-    redirect_to [:users]
-    flash[:danger] = "User profile has been deleted"
+    if @user.destroy
+      redirect_to users_path
+      flash[:danger] = "User profile has been deleted"
+    else
+      flash.now[:warning] = 'Delete failed!'
+    end
   end
 
   def update

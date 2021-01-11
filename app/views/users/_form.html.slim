@@ -1,0 +1,34 @@
+- provide(:title, 'Edit')
+.d-flex.justify-content-center
+  = simple_form_for @user do |f|
+    .container
+      .d-flex.justify-content-center
+        .card
+          .card-header
+            h3
+             | Edit profile
+          .card-body
+            form
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text
+                    i.fas.fa-user
+                .field
+                  = f.text_field :first_name, placeholder: 'first name'
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text
+                    i.fas.fa-user
+                .field
+                  = f.text_field :last_name, placeholder: 'last name'
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text
+                    i.fas.fa-envelope
+                .field
+                  = f.email_field :email, placeholder: 'email'
+      .actions
+        .row
+          = f.submit "Submit", class: "btn btn-edit"
+          = link_to 'Back', user_path, class: "btn btn-edit"
+          = link_to 'Delete User',  @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-edit"

@@ -14,25 +14,25 @@
                   .input-group.form-group
                     .input-group-prepend
                       span.input-group-text
-                        i.fas.fa-user
+                        i.fas.fa-envelope
                     .field
-                      = f.email_field :email, autofocus: true, autocomplete: "email"
+                      = f.email_field :email, autofocus: true, placeholder: 'email', autocomplete: "email"
                   .input-group.form-group
                     .input-group-prepend
                       span.input-group-text
                         i.fas.fa-key
                     .field
-                      = f.password_field :password, autocomplete: "current-password"
+                      = f.password_field :password, placeholder: 'password', autocomplete: "current-password"
                   - if devise_mapping.rememberable?
                     .field
                       = f.check_box :remember_me
                       = f.label :remember_me
                   .d-flex.justify-content-center.mt-2
                     .actions
-                      = f.submit "Login"
+                      = f.submit "Login", class: "btn"
               .d-flex.justify-content-center
                 | or sign up with:
-              .field.d-flex.justify-content-center.p-3
+              .field.d-flex.justify-content-center.p-3.link-footer
                 = link_to user_google_oauth2_omniauth_authorize_path, class: 'light-blue-text mx-2'
                   i.fab.fa-google.fa-lg
                 = link_to user_facebook_omniauth_authorize_path, class: 'light-blue-text mx-2'

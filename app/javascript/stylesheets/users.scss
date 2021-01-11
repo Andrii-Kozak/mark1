@@ -20,7 +20,14 @@
   border-radius: 0.25rem;
 }
 
-.btn {
-  width: 110px;
-  padding: 5px;
+
+.row-user {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10px;
+}
+
+.btn-edit {
+  margin: 4px;
+  margin-top: 30px;
 }

@@ -13,5 +13,5 @@
                 strong = @user.full_name
               span = @user.email
               .row
-                = link_to 'Edit User', edit_user_path, class: "btn"
-                = link_to 'Delete User',  @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn"
+                = link_to 'Edit User', edit_user_path, class: "btn btn-user"
+                = link_to 'Back', users_path, class: "btn btn-user"
