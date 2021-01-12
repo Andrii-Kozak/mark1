@@ -4,6 +4,12 @@ class User < ApplicationRecord
     google_oauth2: 'Google'
   }.freeze
 
+  ADMIN = "admin".freeze
+  SIMPLE = "simple".freeze
+
+  ROLES = [ADMIN, SIMPLE].freeze
+  enum role: ROLES
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -46,6 +52,7 @@ end
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  role                   :integer
 #  uid                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
