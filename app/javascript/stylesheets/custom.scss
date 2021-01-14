@@ -130,8 +130,27 @@ footer a {
     text-decoration: none;
   }
 }
-
-.pagination-centered{
+/* pagination */
+.pagination-centered {
   padding-top: 35px;
   justify-content: center;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #ce431a;
+  background-color: #343a405e;
+  border-color: #f8b1b1;
+}
+
+.page-link {
+  color: #000000;
+
+  &:hover {
+    z-index: 2;
+    color: #ce431a;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+  }
 }
