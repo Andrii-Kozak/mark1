@@ -1,7 +1,7 @@
 /* universal */
-// body {
-//   background-color: #f8f9fa;
-// }
+body {
+  padding-top: 60px;
+}
 
 section {
   overflow: auto;
@@ -82,8 +82,6 @@ p {
 footer {
   margin-top: 45px;
   box-shadow: 0 0 10px -3px #ce431a;
-  // position: absolute;
-  bottom: 0;
   width: 100%;
   line-height: 40px;
   background-color: #343a40;
