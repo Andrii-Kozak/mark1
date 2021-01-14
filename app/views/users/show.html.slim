@@ -13,5 +13,6 @@
                 strong = @user.full_name
               span = @user.email
               .row
-                = link_to 'Edit User', edit_user_path, class: "btn btn-user"
+                - if current_user.id == @user.id or current_user.admin?
+                  = link_to 'Edit User', edit_user_path, class: "btn btn-user"
                 = link_to 'Back', users_path, class: "btn btn-user"
