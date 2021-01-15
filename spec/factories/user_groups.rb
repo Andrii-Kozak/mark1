@@ -1,8 +1,3 @@
-FactoryBot.define do
-  # factory :user_group do
-  # end
-end
-
 # == Schema Information
 #
 # Table name: user_groups

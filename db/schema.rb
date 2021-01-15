@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_134437) do
   create_table "groups", force: :cascade do |t|
     t.string "group_name"
     t.string "description"
-    t.integer "group_type"
+    t.integer "group_type", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -38,6 +38,13 @@ RSpec.describe User, type: :model do
   context "when email is invalid" do
     it { is_expected.not_to allow_value('invali-email.com').for(:email) }
   end
+
+  describe 'associations' do
+    context 'when have_many' do
+      it 'user_groups' do is_expected.to have_many(:user_groups) end
+      it 'groups' do is_expected.to respond_to(:groups) end
+    end
+  end
 end
 
 # == Schema Information

@@ -1,7 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe UserGroup, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'associations' do
+    context 'when belong_to' do
+      it 'user' do is_expected.to belong_to(:user) end
+      it 'group' do is_expected.to belong_to(:group) end
+    end
+  end
 end
 
 # == Schema Information
