@@ -10,15 +10,18 @@ class User < ApplicationRecord
   ROLES = [ADMIN, SIMPLE].freeze
   enum role: ROLES
 
+  has_many :user_groups, dependent: :destroy
+  has_many :groups, through: :user_group
+
+  validates :first_name,
+            :last_name, presence: true, length: { maximum: 50 }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true, length: { maximum: 255 }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-
-  validates :first_name,
-            :last_name, presence: true, length: { maximum: 50 }
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true, length: { maximum: 255 }
 
   paginates_per 10
 

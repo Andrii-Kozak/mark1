@@ -27,12 +27,12 @@ gem 'simple_form'
 gem 'slim-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'bootstrap4-kaminari-views'
 gem 'bootstrap-sass'
+gem 'kaminari'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'rails_admin'
-gem 'kaminari'
-gem 'bootstrap4-kaminari-views'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
