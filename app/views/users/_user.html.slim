@@ -5,11 +5,13 @@
         .row
           .col-lg-5
             .profile-image
-              img[src="https://bootdey.com/img/Content/avatar/avatar7.png" alt='Image']
+              - if user.image?
+                = image_tag(user.image.user_index.url, alt: 'Image', class: 'profile-image')
+              - else
+                img[src="https://bootdey.com/img/Content/avatar/avatar7.png" alt='Image']
           .col-lg-7
             h4.m-t-0.m-b-0
               strong = "#{user.full_name}"
             span = "#{user.email}"
             .row
               = link_to 'Show', user, class: "btn btn-user"
-              
