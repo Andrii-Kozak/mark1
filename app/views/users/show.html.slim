@@ -10,7 +10,7 @@
                 - if @user.image?
                   = image_tag(@user.image.user_show.url, alt: 'Image', class: 'profile-image')
                 - else
-                  img[src="https://bootdey.com/img/Content/avatar/avatar7.png" alt='Image']
+                  = image_tag("default_avatar.png", alt: 'Image', class: 'profile-image')
             .col-lg-7
               h4.m-t-0.m-b-0
                 strong = @user.full_name

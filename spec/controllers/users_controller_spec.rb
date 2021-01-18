@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  let!(:user) { create(:user) }
-  let!(:valid_params) { attributes_for :user }
-  let!(:invalid_params) { { first_name: ' ', last_name: ' ' } }
+  let(:user) { create(:user) }
+  let(:valid_params) { attributes_for :user }
+  let(:invalid_params) { { first_name: ' ', last_name: ' ' } }
 
   before { sign_in user }
 
