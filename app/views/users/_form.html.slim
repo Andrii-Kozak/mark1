@@ -23,6 +23,11 @@
                   = f.text_field :last_name, placeholder: 'last name'
               .input-group.form-group
                 .input-group-prepend
+                .field
+                  = f.file_field :image, input_html: { class: 'form-control' }
+                  = f.error :image
+              .input-group.form-group
+                .input-group-prepend
                   span.input-group-text
                     i.fas.fa-envelope
                 .field

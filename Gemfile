@@ -29,7 +29,9 @@ gem 'slim-rails'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap4-kaminari-views'
 gem 'bootstrap-sass'
+gem 'carrierwave', '~> 2.0'
 gem 'kaminari'
+gem "mini_magick"
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'rails_admin'
@@ -42,6 +44,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'rspec-rails'
   gem 'rubocop', '~> 1.1', require: false
   gem 'rubocop-rails', require: false

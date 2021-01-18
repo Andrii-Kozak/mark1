@@ -23,6 +23,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
+  mount_uploader :image, ImageUploader
   paginates_per 10
 
   def full_name
@@ -52,6 +53,7 @@ end
 #  email                  :string(254)      not null
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string(50)       not null
+#  image                  :string
 #  last_name              :string(50)       not null
 #  provider               :string
 #  remember_created_at    :datetime
