@@ -1,26 +1,26 @@
 - provide(:title, 'Edit')
 .d-flex.justify-content-center
-  = simple_form_for @user do |f|
+  = simple_form_for @group do |f|
     .container
       .d-flex.justify-content-center
         .card
           .card-header
             h3
-             | Edit profile
+             | Edit Group
           .card-body
             form
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
-                    i.fas.fa-user
+                    i.fas.fa-users-cog
                 .field
-                  = f.text_field :first_name, placeholder: 'first name'
+                  = f.text_field :group_name, placeholder: 'group name'
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
-                    i.fas.fa-user
+                    i.fas.fa-users-cog
                 .field
-                  = f.text_field :last_name, placeholder: 'last name'
+                  = f.text_area :description, prepend: "With textarea", style: "width: 104%"
               .input-group.form-group
                 .input-group-prepend
                 .field
@@ -28,12 +28,10 @@
                   = f.error :image
               .input-group.form-group
                 .input-group-prepend
-                  span.input-group-text
-                    i.fas.fa-envelope
                 .field
-                  = f.email_field :email, placeholder: 'email'
+                  = f.input :group_type, collection: Group::GROUP_TYPE
       .actions
         .row
           = f.submit "Submit", class: "btn btn-edit"
-          = link_to 'Back', user_path, class: "btn btn-edit"
-          = link_to 'Delete User',  @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-edit"
+          = link_to 'Back', group_path, class: "btn btn-edit"
+          = link_to 'Delete',  @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-edit"

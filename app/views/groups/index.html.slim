@@ -1,0 +1,7 @@
+- provide(:title, 'All group')
+.jumbotron
+  h1
+    | All Groups
+  .row
+    = render @groups
+  = paginate @groups, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm pagination-centered"

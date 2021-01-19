@@ -13,6 +13,8 @@ class Group < ApplicationRecord
   validates :group_name,  presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 120 }
   validates :group_type, presence: true, inclusion: { in: GROUP_TYPE }
+
+  paginates_per 10
 end
 
 # == Schema Information
