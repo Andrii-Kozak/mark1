@@ -14,13 +14,13 @@
                   span.input-group-text
                     i.fas.fa-users-cog
                 .field
-                  = f.text_field :group_name, placeholder: 'group name'
+                  = f.input :group_name, placeholder: 'group name', label: false
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
                     i.fas.fa-users-cog
                 .field
-                  = f.text_area :description, prepend: "With textarea", style: "width: 104%"
+                  = f.input :description, prepend: "With textarea", style: "width: 104%", as: :text, label: false
               .input-group.form-group
                 .input-group-prepend
                 .field
@@ -33,5 +33,5 @@
       .actions
         .row
           = f.submit "Submit", class: "btn btn-edit"
-          = link_to 'Back', group_path, class: "btn btn-edit"
+          = link_to 'Back', groups_path, class: "btn btn-edit"
           = link_to 'Delete',  @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-edit"

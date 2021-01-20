@@ -14,13 +14,13 @@
                   span.input-group-text
                     i.fas.fa-user
                 .field
-                  = f.text_field :first_name, placeholder: 'first name'
+                  = f.input :first_name, placeholder: 'first name', label: false
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
                     i.fas.fa-user
                 .field
-                  = f.text_field :last_name, placeholder: 'last name'
+                  = f.input :last_name, placeholder: 'last name', label: false
               .input-group.form-group
                 .input-group-prepend
                 .field
@@ -31,7 +31,7 @@
                   span.input-group-text
                     i.fas.fa-envelope
                 .field
-                  = f.email_field :email, placeholder: 'email'
+                  = f.input :email, placeholder: 'email', label: false
       .actions
         .row
           = f.submit "Submit", class: "btn btn-edit"

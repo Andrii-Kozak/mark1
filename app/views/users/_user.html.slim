@@ -11,7 +11,7 @@
                 = image_tag("default_avatar.png", alt: 'Image', class: 'profile-image')
           .col-lg-7
             h4.m-t-0.m-b-0
-              strong = "#{user.full_name}"
-            span = "#{user.email}"
+              strong = user.full_name
+            span = user.email
             .row
               = link_to 'Show', user, class: "btn btn-user"

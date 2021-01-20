@@ -2,6 +2,11 @@
 .jumbotron
   h1
     | All Groups
+  h2
+    | new group
+    = link_to new_group_path
+     button.btn-outline-light.btn-custom
+       i.fas.fa-plus
   .row
     = render @groups
   = paginate @groups, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm pagination-centered"
