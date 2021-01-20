@@ -15,24 +15,31 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group.save
-
-    redirect_to groups_path
+    if @group.save
+      flash[:success] = "group \"#{@group.group_name}\"  created"
+      redirect_to groups_path
+    else
+      flash.now[:warning] = "Invalid parameters"
+    end
   end
 
   def update
     if @group.update(group_params)
-      flash[:success] = "group profile \"#{@group.group_name}\"  updated"
+      flash[:success] = "group \"#{@group.group_name}\"  updated"
       redirect_to @group
     else
-      render 'edit', warning: 'Invalid parameters for editing'
+      flash.now[:warning] = 'Invalid parameters for editing!'
+      render :edit
     end
   end
 
   def destroy
-    @group.destroy
-    redirect_to [:groups]
-    flash[:danger] = "Group \"#{@group.group_name}\" with id:#{@group.id} has been deleted"
+    if @group.destroy
+      redirect_to [:groups]
+      flash.now[:warning] = "Group \"#{@group.group_name}\" has been deleted"
+    else
+      flash.now[:danger] = 'Failed to delete group!'
+    end
   end
 
   private
@@ -44,6 +51,7 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:group_name,
                                   :description,
-                                  :group_type)
+                                  :group_type,
+                                  :image)
   end
 end

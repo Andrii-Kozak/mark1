@@ -4,7 +4,10 @@
     .col-md-4
       .card.mb-4.box-shadow
         .profile-image.prof-img.d-flex.justify-content-center
-          = image_tag("default_group.png", alt: 'Image', class: 'card-img-top')
+          - if @group.image?
+            = image_tag(@group.image.show.url, alt: 'Image', class: 'profile-image')
+          - else
+            = image_tag("default_group.png", alt: 'Image', class: 'card-img-top')
         .card-body
           .d-flex.justify-content-center
             strong = "#{@group.group_name}"

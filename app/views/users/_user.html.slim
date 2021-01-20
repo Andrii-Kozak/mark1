@@ -6,7 +6,7 @@
           .col-lg-5
             .profile-image
               - if user.image?
-                = image_tag(user.image.user_index.url, alt: 'Image', class: 'profile-image')
+                = image_tag(user.image.index.url, alt: 'Image', class: 'profile-image')
               - else
                 = image_tag("default_avatar.png", alt: 'Image', class: 'profile-image')
           .col-lg-7
