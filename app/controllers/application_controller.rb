@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from ActiveRecord::RecordNotFound do
+    head :not_found, status: :not_found
+  end
+
   protected
 
   def configure_permitted_parameters

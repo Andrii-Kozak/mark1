@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     if @group.save
       flash[:success] = "group \"#{@group.group_name}\" created"
-      redirect_to groups_path
+      redirect_to @group
     else
       flash[:warning] = "Invalid parameters"
       render :new

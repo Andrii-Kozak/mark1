@@ -24,6 +24,17 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to have_http_status(:success)
       expect(assigns(:user)).to eq(user)
     end
+
+    context 'with invalid params' do
+      before do
+        get :show, params: { id: User.last.id + 1 }
+      end
+
+      it 'returns error and assigns user' do
+        expect(response).to have_http_status(:not_found)
+        expect(assigns(:user)).to eq(user)
+      end
+    end
   end
 
   describe 'GET#edit' do
