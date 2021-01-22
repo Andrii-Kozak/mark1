@@ -6,6 +6,16 @@ header
         ul.nav.navbar-right.list-inline
           - if user_signed_in?
             li.list-inline-item
+              = link_to groups_path do
+                span.fas.fa-users
+                | Groups
+                end
+            li.list-inline-item
+              = link_to users_path do
+                span.fas.fa-user-friends
+                | Users
+                end
+            li.list-inline-item
               = link_to destroy_user_session_path, method: :delete do
                 span.fas.fa-sign-out-alt
                 | Sign out
@@ -16,7 +26,7 @@ header
                 span.fas.fa-user-check
                 | Sign Up
                 end
-            li.list-inline-item.last
+            li.list-inline-item
               = link_to new_user_session_path do
                 span.fas.fa-sign-in-alt
                 |  Login

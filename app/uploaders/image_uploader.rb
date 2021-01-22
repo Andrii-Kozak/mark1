@@ -29,11 +29,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :user_index do
+  version :index do
     process resize_to_fill: [100, 100]
   end
 
-  version :user_show do
+  version :show do
     process resize_to_fill: [150, 150]
   end
 
