@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe GroupsController, type: :controller do
   let!(:group) { create(:group) }
-  let!(:valid_params) { attributes_for :group }
+  let!(:valid_params) { attributes_for(:group) }
   let!(:invalid_params) { { group_name: '' } }
 
   describe 'GET#index' do
@@ -14,23 +14,16 @@ RSpec.describe GroupsController, type: :controller do
   end
 
   describe 'GET#show' do
-    before do
-      get :show, params: { id: group.id }
-    end
-
     it 'returns success and assigns group' do
+      get :show, params: { id: group.id }
       expect(response).to have_http_status(:success)
       expect(assigns(:group)).to eq(group)
     end
 
     context 'with invalid params' do
-      before do
-        get :show, params: { id: Group.last.id + 1 }
-      end
-
       it 'returns error and assigns group' do
+        get :show, params: { id: Group.last.id + 1 }
         expect(response).to have_http_status(:not_found)
-        expect(assigns(:group)).to eq(group)
       end
     end
   end
@@ -106,10 +99,7 @@ RSpec.describe GroupsController, type: :controller do
       it 'does not change group' do
         expect do
           put :update, params: { id: group.id, group: invalid_params }
-        end.not_to change { group.reload.group_name }
-        expect do
-          put :update, params: { id: group.id, group: invalid_params }
-        end.not_to change { group.reload.description }
+        end.not_to change { group.reload.updated_at }
       end
     end
   end

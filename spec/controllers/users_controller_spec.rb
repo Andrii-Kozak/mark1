@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  let(:user) { create(:user) }
-  let(:valid_params) { attributes_for :user }
+  let!(:user) { create(:user) }
+  let(:valid_params) { { first_name: 'Test', last_name: 'Test', email: 'example@mail.com' } }
   let(:invalid_params) { { first_name: ' ', last_name: ' ' } }
 
   before { sign_in user }
@@ -51,10 +51,7 @@ RSpec.describe UsersController, type: :controller do
   describe 'PUT#update' do
     context 'with valid params' do
       before do
-        put :update, params: { id: user.id,
-                               user: valid_params.merge!(first_name: 'Example',
-                                                         last_name: 'Test',
-                                                         email: 'example@email.com') }
+        put :update, params: { id: user.id, user: valid_params }
       end
 
       it 'assigns the user' do

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     head :not_found, status: :not_found
   end
 
-  protected
+  private
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name])

@@ -8,30 +8,29 @@
             h3
              | Edit profile
           .card-body
-            form
-              .input-group.form-group
-                .input-group-prepend
-                  span.input-group-text
-                    i.fas.fa-user
-                .field
-                  = f.input :first_name, placeholder: 'first name', label: false
-              .input-group.form-group
-                .input-group-prepend
-                  span.input-group-text
-                    i.fas.fa-user
-                .field
-                  = f.input :last_name, placeholder: 'last name', label: false
-              .input-group.form-group
-                .input-group-prepend
-                .field
-                  = f.file_field :image, style: "width: 13px"
-                  = f.error :image
-              .input-group.form-group
-                .input-group-prepend
-                  span.input-group-text
-                    i.fas.fa-envelope
-                .field
-                  = f.input :email, placeholder: 'email', label: false
+            .input-group.form-group
+              .input-group-prepend
+                span.input-group-text
+                  i.fas.fa-user
+              .field
+                = f.input :first_name, placeholder: 'first name', label: false
+            .input-group.form-group
+              .input-group-prepend
+                span.input-group-text
+                  i.fas.fa-user
+              .field
+                = f.input :last_name, placeholder: 'last name', label: false
+            .input-group.form-group
+              .input-group-prepend
+              .field
+                = f.file_field :image, style: "width: 13px"
+                = f.error :image
+            .input-group.form-group
+              .input-group-prepend
+                span.input-group-text
+                  i.fas.fa-envelope
+              .field
+                = f.input :email, placeholder: 'email', label: false
       .actions
         .row
           = f.submit "Submit", class: "btn btn-edit"

@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
 
   def index
-    @groups = Group.page params[:page]
+    @groups = Group.page(params[:page])
   end
 
   def show; end
@@ -35,12 +35,9 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    if @group.destroy
-      redirect_to [:groups]
-      flash[:warning] = "Group \"#{@group.group_name}\" has been deleted"
-    else
-      flash[:danger] = 'Failed to delete group!'
-    end
+    @group.destroy
+    redirect_to [:groups]
+    flash[:warning] = "Group \"#{@group.group_name}\" has been deleted"
   end
 
   private
