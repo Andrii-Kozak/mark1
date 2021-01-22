@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.page params[:page]
+    @users = User.page(params[:page])
   end
 
   def show; end
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def destroy
     if @user.destroy
       redirect_to users_path
-      flash[:danger] = "User profile has been deleted"
+      flash[:danger] = "User profile \"#{@user.full_name}\" has been deleted"
     else
       flash.now[:warning] = 'Delete failed!'
     end
@@ -40,6 +40,6 @@ class UsersController < ApplicationController
   end
 
   def user
-    @user ||= User.find(params[:id])
+    @user = User.find(params[:id])
   end
 end

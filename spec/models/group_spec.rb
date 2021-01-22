@@ -39,6 +39,7 @@ end
 #  description :string
 #  group_name  :string
 #  group_type  :integer          default("other")
+#  image       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

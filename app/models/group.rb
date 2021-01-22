@@ -13,6 +13,9 @@ class Group < ApplicationRecord
   validates :group_name,  presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 120 }
   validates :group_type, presence: true, inclusion: { in: GROUP_TYPE }
+
+  mount_uploader :image, ImageUploader
+  paginates_per 6
 end
 
 # == Schema Information
@@ -23,6 +26,7 @@ end
 #  description :string
 #  group_name  :string
 #  group_type  :integer          default("other")
+#  image       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

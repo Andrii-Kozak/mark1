@@ -1,0 +1,17 @@
+.col-md-4
+  .card.mb-4.box-shadow
+    .profile-image.prof-img.d-flex.justify-content-center
+      - if group.image?
+        = image_tag(group.image.show.url, alt: 'Image', class: 'profile-image')
+      - else
+        = image_tag("default_group.png", alt: 'Image', class: 'card-img-top')
+    .card-body
+      .d-flex.justify-content-center
+        strong = group.group_name
+      .d-flex.justify-content-center
+        span = group.group_type
+      p.card-text
+        = group.description
+      .d-flex.justify-content-center.align-items-center
+        - if current_user.admin?
+        = link_to 'Show', group, class: "btn btn-sm btn-outline-secondary"
