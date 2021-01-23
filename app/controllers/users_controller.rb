@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :user, only: %i[show edit update destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
     @users = User.page(params[:page])

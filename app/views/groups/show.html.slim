@@ -16,6 +16,6 @@
           p.card-text
             = @group.description
           .d-flex.justify-content-around
-              - if current_user.admin?
+              - if current_user&.admin?
                 = link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-outline-secondary"
               = link_to 'Back', groups_path, class: "btn btn-sm btn-outline-secondary"

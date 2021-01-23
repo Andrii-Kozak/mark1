@@ -5,6 +5,8 @@ RSpec.describe GroupsController, type: :controller do
   let!(:valid_params) { attributes_for(:group) }
   let!(:invalid_params) { { group_name: '' } }
 
+  login_user
+
   describe 'GET#index' do
     it 'assigns group and renders template' do
       get :index
