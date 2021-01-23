@@ -1,8 +1,17 @@
+FactoryBot.define do
+  factory :user_group do
+    group
+    user
+    admin { false }
+  end
+end
+
 # == Schema Information
 #
 # Table name: user_groups
 #
 #  id         :bigint           not null, primary key
+#  admin      :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  group_id   :bigint

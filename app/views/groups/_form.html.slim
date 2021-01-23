@@ -19,11 +19,12 @@
                 span.input-group-text
                   i.fas.fa-users-cog
               .field
-                = f.input :description, prepend: "With textarea", style: "width: 104%", as: :text, label: false
+                = f.input :description, prepend: "With textarea", as: :text, label: false,
+                                        input_html: { style: "width: 104%"}
             .input-group.form-group
               .input-group-prepend
               .field
-                = f.file_field :image, style: "width: 13px"
+                = f.file_field :image, style: "max-width: 256px"
                 = f.error :image
             .input-group.form-group
               .input-group-prepend
