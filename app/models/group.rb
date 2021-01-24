@@ -8,7 +8,7 @@ class Group < ApplicationRecord
   enum group_type: GROUP_TYPE
 
   has_many :user_groups, dependent: :destroy
-  has_many :users, through: :user_group
+  has_many :users, through: :user_groups
 
   validates :group_name,  presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 120 }

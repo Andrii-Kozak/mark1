@@ -3,6 +3,10 @@ FactoryBot.define do
     group
     user
     admin { false }
+
+    trait :admin do
+      admin { true }
+    end
   end
 end
 
