@@ -2,10 +2,10 @@ FactoryBot.define do
   factory :user_group do
     group
     user
-    admin { false }
+    moderator { false }
 
-    trait :admin do
-      admin { true }
+    trait :moderator do
+      moderator { true }
     end
   end
 end
@@ -15,7 +15,7 @@ end
 # Table name: user_groups
 #
 #  id         :bigint           not null, primary key
-#  admin      :boolean          default(FALSE)
+#  moderator  :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  group_id   :bigint
