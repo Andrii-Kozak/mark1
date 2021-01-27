@@ -17,7 +17,7 @@ class Group < ApplicationRecord
   mount_uploader :image, ImageUploader
   paginates_per 6
 
-  def user_admin?(user)
+  def user_moderator?(user)
     user_groups.moderators.for_user(user).present?
   end
 end

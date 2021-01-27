@@ -5,7 +5,7 @@ RSpec.describe GroupsController, type: :controller do
   let!(:valid_params) { attributes_for(:group) }
   let!(:invalid_params) { { group_name: '' } }
 
-  login_user
+  login_admin
 
   describe 'GET#index' do
     it 'assigns group and renders template' do
@@ -102,6 +102,19 @@ RSpec.describe GroupsController, type: :controller do
         expect do
           put :update, params: { id: group.id, group: invalid_params }
         end.not_to change { group.reload.updated_at }
+      end
+    end
+
+    context 'with valid params as simple user' do
+      login_user
+
+      before do
+        put :update, params: { id: group.id, group: valid_params }
+      end
+
+      it 'does not change group' do
+        expect { group }.not_to change(group, :reload)
+        expect(response).to render_template(:show)
       end
     end
   end

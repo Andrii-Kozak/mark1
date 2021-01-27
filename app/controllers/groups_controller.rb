@@ -12,7 +12,12 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
-  def edit; end
+  def edit
+    unless @group.user_moderator?(current_user) || current_user.admin?
+      flash[:warning] = "Access denied"
+      render :show
+    end
+  end
 
   def create
     @group = Group.new(group_params)
@@ -26,13 +31,18 @@ class GroupsController < ApplicationController
     end
   end
 
-  def update
-    if @group.update(group_params)
-      flash[:success] = "group \"#{@group.group_name}\"  updated"
-      redirect_to @group
+  def update # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+    if @group.user_moderator?(current_user) || current_user.admin?
+      if @group.update(group_params)
+        flash[:success] = "group \"#{@group.group_name}\"  updated"
+        redirect_to @group
+      else
+        flash[:warning] = 'Invalid parameters for editing!'
+        render :edit
+      end
     else
-      flash[:warning] = 'Invalid parameters for editing!'
-      render :edit
+      flash[:warning] = "Access denied"
+      render :show
     end
   end
 
