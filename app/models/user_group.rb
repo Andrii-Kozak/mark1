@@ -1,6 +1,9 @@
 class UserGroup < ApplicationRecord
   belongs_to :user
   belongs_to :group
+
+  scope :moderators, -> { where(admin: true) }
+  scope :for_user, ->(user) { where(user_id: user.id) }
 end
 
 # == Schema Information
