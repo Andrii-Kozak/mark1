@@ -1,5 +1,4 @@
-FactoryBot.create_list(:user, 15)
-FactoryBot.create_list(:group, 10)
+FactoryBot.create_list(:user_group, 20, :moderator)
 
 FactoryBot.create(:user, first_name: 'Admin', last_name: 'Test',
                   email: "example@railstutorial.org",

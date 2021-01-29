@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
-  let(:group) { FactoryBot.build(:group, group_name: 'Music', description: 'Oleg Vinnik') }
+  let!(:group) { FactoryBot.build(:group, group_name: 'Music', description: 'Oleg Vinnik') }
 
   context "when valid Factory" do
     it "has a valid factory" do
@@ -27,6 +27,18 @@ RSpec.describe Group, type: :model do
     context 'when have_many' do
       it 'user_groups' do is_expected.to have_many(:user_groups) end
       it 'users' do is_expected.to respond_to(:users) end
+    end
+  end
+
+  describe 'when user' do
+    let(:user_group) { FactoryBot.create(:user_group, :moderator) }
+
+    it 'is moderator' do
+      expect(user_group.group.user_moderator?(user_group.user)).to be(true)
+    end
+
+    it 'is not moderator' do
+      expect(group.user_moderator?(user_group.user)).to be(false)
     end
   end
 end

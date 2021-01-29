@@ -11,7 +11,7 @@ class User < ApplicationRecord
   enum role: ROLES
 
   has_many :user_groups, dependent: :destroy
-  has_many :groups, through: :user_group
+  has_many :groups, through: :user_groups
 
   validates :first_name,
             :last_name, presence: true, length: { maximum: 50 }

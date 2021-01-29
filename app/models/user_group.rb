@@ -1,6 +1,9 @@
 class UserGroup < ApplicationRecord
   belongs_to :user
   belongs_to :group
+
+  scope :moderators, -> { where(moderator: true) }
+  scope :for_user, ->(user) { where(user_id: user.id) }
 end
 
 # == Schema Information
@@ -8,6 +11,7 @@ end
 # Table name: user_groups
 #
 #  id         :bigint           not null, primary key
+#  moderator  :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  group_id   :bigint
