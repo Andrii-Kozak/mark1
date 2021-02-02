@@ -17,10 +17,7 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.
+
 gem 'devise'
 gem 'jquery-rails'
 gem 'simple_form'
@@ -30,6 +27,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap4-kaminari-views'
 gem 'bootstrap-sass'
 gem 'carrierwave', '~> 2.0'
+gem 'factory_bot_rails'
+gem 'faker'
 gem 'kaminari'
 gem "mini_magick"
 gem 'omniauth-facebook'
@@ -42,8 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner'
   gem 'dotenv-rails'
-  gem 'factory_bot_rails'
-  gem 'faker'
+
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'rspec-rails'
   gem 'rubocop', '~> 1.1', require: false
