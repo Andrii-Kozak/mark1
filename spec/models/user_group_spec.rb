@@ -22,6 +22,10 @@ RSpec.describe UserGroup, type: :model do
     it 'returns not empty collection' do
       expect(described_class.for_user(user)).to include(user_group)
     end
+
+    it 'empty collection' do
+      expect(described_class.for_user(nil)).to match([])
+    end
   end
 
   describe '.moderators' do
