@@ -1,6 +1,6 @@
 /* universal */
 body {
-  padding: 60px 0 40px 0;
+  padding: 60px 0 40px;
 }
 
 section {
@@ -78,7 +78,6 @@ p {
 .list-inline-item {
   margin: 0 10px 0 20px;
 }
-
 /* footer */
 footer {
   margin-top: 45px;
@@ -114,6 +113,10 @@ footer a {
 .jumbotron {
   margin: 20px 0;
   background-color: #adb5bdc9;
+}
+
+.jumbotron2 {
+  padding: 2rem 1rem;
 }
 
 .registration {
