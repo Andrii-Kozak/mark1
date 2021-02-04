@@ -8,9 +8,12 @@ class UsersController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    authorize @user
+  end
 
   def destroy
+    authorize @user
     if @user.destroy
       redirect_to users_path
       flash[:danger] = "User profile \"#{@user.full_name}\" has been deleted"
@@ -20,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    authorize @user
     if @user.update(user_params)
       flash[:success] = "User profile \"#{@user.full_name}\" updated"
       redirect_to @user

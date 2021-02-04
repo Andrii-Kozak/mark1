@@ -30,9 +30,10 @@ gem 'carrierwave', '~> 2.0'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'kaminari'
-gem "mini_magick"
+gem 'mini_magick'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'pundit'
 gem 'rails_admin'
 
 group :development, :test do
