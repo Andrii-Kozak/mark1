@@ -6,6 +6,7 @@ require 'rspec/rails'
 require 'database_cleaner'
 require 'factory_bot'
 require 'support/controller_macros'
+require 'pundit/rspec'
 
 # Require support files
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }

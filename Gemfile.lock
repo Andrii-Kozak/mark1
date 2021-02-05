@@ -203,6 +203,8 @@ GEM
     public_suffix (4.0.6)
     puma (5.1.1)
       nio4r (~> 2.0)
+    pundit (2.1.0)
+      activesupport (>= 3.0.0)
     rack (2.2.3)
     rack-pjax (1.1.0)
       nokogiri (~> 1.5)
@@ -384,6 +386,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   pg (~> 1.1)
   puma (~> 5.0)
+  pundit
   rails (~> 6.1.0)
   rails-controller-testing (~> 1.0, >= 1.0.5)
   rails_admin

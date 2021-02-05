@@ -3,7 +3,7 @@ class UserGroup < ApplicationRecord
   belongs_to :group
 
   scope :moderators, -> { where(moderator: true) }
-  scope :for_user, ->(user) { where(user_id: user.id) }
+  scope :for_user, ->(user) { where(user_id: user&.id) }
 end
 
 # == Schema Information
