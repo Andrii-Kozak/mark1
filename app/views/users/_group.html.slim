@@ -1,0 +1,12 @@
+.col-md-6
+  .card-body.p-2
+    .profile-img-group.d-flex.justify-content-center
+      - if group.image?
+        = image_tag(group.image.show.url, alt: 'Image', class: 'profile-img')
+      - else
+        = image_tag("default_group.png", alt: 'Image', class: 'card-img-top')
+    .group-name
+      .d-flex.justify-content-center
+        strong = group.group_name
+      .d-flex.justify-content-center
+        span = group.group_type
