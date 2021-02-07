@@ -5,29 +5,39 @@ header
       nav
         ul.nav.navbar-right.list-inline
           - if user_signed_in?
-            li.list-inline-item
-              = link_to groups_path do
-                span.fas.fa-users
-                | Groups
-                end
-            li.list-inline-item
-              = link_to users_path do
-                span.fas.fa-user-friends
-                | Users
-                end
+            li.dropdown
+              a.dropdown-toggle data-toggle="dropdown" href="#"
+                | Account
+                b.caret
+              ul.dropdown-menu.bg-dark
+                li.list-inline-item
+                  = link_to user_path(current_user) do
+                    span.fas.fa-user-alt.fa-fw.mr-2
+                    | My Profile
+                    end
+                li.list-inline-item
+                  = link_to users_path do
+                    span.fas.fa-user-friends.fa-fw.mr-2
+                    | Users
+                    end
+                li.list-inline-item
+                  = link_to groups_path do
+                    span.fas.fa-users.fa-fw.mr-2
+                    | Groups
+                    end
             li.list-inline-item
               = link_to destroy_user_session_path, method: :delete do
-                span.fas.fa-sign-out-alt
+                span.fas.fa-sign-out-alt.fa-fw
                 | Sign out
                 end
           - else
             li.list-inline-item
               = link_to new_user_registration_path do
-                span.fas.fa-user-check
+                span.fas.fa-user-check.fa-fw.mr-1
                 | Sign Up
                 end
             li.list-inline-item
               = link_to new_user_session_path do
-                span.fas.fa-sign-in-alt
+                span.fas.fa-sign-in-alt.fa-fw
                 |  Login
                 end
