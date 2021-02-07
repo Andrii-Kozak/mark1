@@ -21,15 +21,17 @@
                 = link_to 'Edit User', edit_user_path, class: "btn btn-user"
 
         .card.mt-3.p-2
-          h2.text-center.mb-2.mt-2
-            | User Groups
+          = link_to groups_user_path, class:"link-user-show" do
+            h2.link-user-show.mb-2.mt-2
+              | My Groups
+          end
           .row
             - @user.groups.limit(4).each do |group|
               = render 'users/group', group: group
 
         .card.mt-3[style="min-height: 220px;"]
-          .text-center
-            | Friends
+          h2.link-user-show.mb-2.mt-2
+            | My Friends
 
       .col-md-8
         .card.mb-3[style="min-height: 782px;"]

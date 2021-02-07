@@ -1,0 +1,8 @@
+- provide(:title, 'My groups')
+.jumbotron
+  h1
+    | #{current_user.first_name} Groups
+  .row
+    - @groups.each do |group|
+      = render 'groups/group', group: group
+  = paginate @groups, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm pagination-centered"
