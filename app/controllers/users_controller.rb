@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def groups
-    @groups = @user.groups.page params[:page]
+    @groups = @user.groups.page(params[:page])
   end
 
   private
