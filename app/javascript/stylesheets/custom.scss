@@ -66,7 +66,7 @@ p {
   }
 }
 
-.nav.navbar-right.list-inline > li > a {
+.dropdown-menu > li > a, .nav.navbar-right.list-inline > li > a {
   color: #ce431a;
 
   &:hover {
@@ -78,6 +78,7 @@ p {
 .list-inline-item {
   margin: 0 10px 0 20px;
 }
+
 /* footer */
 footer {
   margin-top: 45px;

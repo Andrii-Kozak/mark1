@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user, only: %i[show edit update destroy]
+  before_action :user, only: %i[show edit update destroy groups]
   before_action :authenticate_user!, except: %i[index show]
 
   def index
@@ -31,6 +31,10 @@ class UsersController < ApplicationController
       flash.now[:warning] = 'Invalid parameters for editing!'
       render :edit
     end
+  end
+
+  def groups
+    @groups = @user.groups.page(params[:page])
   end
 
   private

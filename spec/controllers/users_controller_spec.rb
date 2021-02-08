@@ -90,4 +90,11 @@ RSpec.describe UsersController, type: :controller do
       expect(flash[:danger]).to be_present
     end
   end
+
+  context 'when user controller routes' do
+    it 'render users#groups' do
+      get :groups, params: { id: user.id }
+      expect(response).to have_http_status(:success)
+    end
+  end
 end

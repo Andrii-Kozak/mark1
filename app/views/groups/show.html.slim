@@ -2,7 +2,7 @@
 .jumbotron
   .d-flex.justify-content-center
     .col-md-4
-      .card.mb-4.box-shadow
+      .card.mb-4
         .profile-image.prof-img.d-flex.justify-content-center
           - if @group.image?
             = image_tag(@group.image.show.url, alt: 'Image', class: 'profile-image')
