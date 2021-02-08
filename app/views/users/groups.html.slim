@@ -1,7 +1,7 @@
-- provide(:title, 'My groups')
+- provide(:title, "#{@user.first_name} groups")
 .jumbotron
   h1
-    | #{current_user.first_name} Groups
+    | #{@user.first_name} Groups
   .row
     - @groups.each do |group|
       = render 'groups/group', group: group
