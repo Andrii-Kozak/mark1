@@ -26,7 +26,7 @@ gem 'slim-rails'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap4-kaminari-views'
 gem 'bootstrap-sass'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'kaminari'

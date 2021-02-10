@@ -371,7 +371,7 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap4-kaminari-views
   byebug
-  carrierwave (~> 2.0)
+  carrierwave
   database_cleaner
   devise
   dotenv-rails
