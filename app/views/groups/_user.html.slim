@@ -1,0 +1,10 @@
+.col-md-6
+  .card-body.p-2
+    .profile-img-group.d-flex.justify-content-center
+      - if user.image?
+        = image_tag(user.image.index.url, alt: 'Image', class: 'profile-image')
+      - else
+        = image_tag("default_avatar.png", alt: 'Image', class: 'profile-image')
+    .group-name
+      .d-flex.justify-content-center
+        strong = user.full_name

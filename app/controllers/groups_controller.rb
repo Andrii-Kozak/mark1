@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show edit update destroy]
+  before_action :set_group, only: %i[show edit update destroy members]
   before_action :authenticate_user!, except: %i[index show]
 
   def index
@@ -50,6 +50,10 @@ class GroupsController < ApplicationController
     @group.destroy
     redirect_to [:groups]
     flash[:warning] = "Group \"#{@group.group_name}\" has been deleted"
+  end
+
+  def members
+    @users = @group.users.page(params[:page])
   end
 
   private

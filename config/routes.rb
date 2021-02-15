@@ -8,5 +8,9 @@ Rails.application.routes.draw do
       get 'groups', to: 'users#groups', as: :groups
     end
   end
-  resources :groups
+  resources :groups do
+    member do
+      get 'members', to: 'groups#members', as: :users
+    end
+  end
 end
