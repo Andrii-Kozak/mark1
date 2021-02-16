@@ -58,11 +58,13 @@ class GroupsController < ApplicationController
 
   def follow
     @group.user_groups.create(user_id: current_user.id)
+    flash[:success] = "Congratulations, You have become a member of #{@group.group_name}"
     redirect_to @group
   end
 
   def unfollow
     @group.user_groups.find_by(user_id: current_user.id).delete
+    flash[:warning] = "You left the \"#{@group.group_name}\" group"
     redirect_to @group
   end
 

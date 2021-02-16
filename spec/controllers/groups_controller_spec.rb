@@ -5,8 +5,6 @@ RSpec.describe GroupsController, type: :controller do
   let!(:valid_params) { attributes_for(:group) }
   let!(:invalid_params) { { group_name: '' } }
 
-  login_admin
-
   describe 'GET#index' do
     it 'assigns group and renders template' do
       get :index
@@ -31,6 +29,7 @@ RSpec.describe GroupsController, type: :controller do
   end
 
   describe 'GET#new' do
+    login_admin
     it 'returns success and assigns group' do
       get :new
       expect(response).to have_http_status(:success)
@@ -39,6 +38,7 @@ RSpec.describe GroupsController, type: :controller do
   end
 
   describe 'POST#create' do
+    login_admin
     context 'with valid params' do
       it 'creates a new group' do
         expect do
@@ -63,6 +63,7 @@ RSpec.describe GroupsController, type: :controller do
   end
 
   describe 'GET#edit' do
+    login_admin
     before do
       get :edit, params: { id: group.id }
     end
@@ -74,6 +75,7 @@ RSpec.describe GroupsController, type: :controller do
   end
 
   describe 'PUT#update' do
+    login_admin
     context 'with valid params' do
       before do
         put :update, params: { id: group.id,
@@ -120,6 +122,7 @@ RSpec.describe GroupsController, type: :controller do
   end
 
   describe 'DELETE#destroy' do
+    login_admin
     it 'destroys the group and redirects to index' do
       expect { delete :destroy, params: { id: group.id } }
         .to change(Group, :count).by(-1)
@@ -128,4 +131,40 @@ RSpec.describe GroupsController, type: :controller do
       expect(flash[:warning]).to be_present
     end
   end
+
+  context 'when user controller routes' do
+    login_user
+    it 'render groups#members' do
+      get :members, params: { id: group.id }
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'when group controller routes' do
+    it 'render groups#follow' do
+      post :follow, params: { id: group.id }
+      expect(response).to have_http_status(:redirect)
+    end
+
+    it 'render groups#unfollow' do
+      delete :unfollow, params: { id: group.id }
+      expect(response).to have_http_status(:redirect)
+    end
+  end
+
+  # describe 'when user' do
+  #   login_user
+  #
+  #   it 'is follow to group' do
+  #     post :follow, params: { id: group.id }
+  #     expect { post :follow, params: { id: group.id } }
+  #       .to change(group.user_groups, :count).by(1)
+  #   end
+  #
+  #   it 'is unfollow from group' do
+  #     delete :unfollow, params: { id: group.id }
+  #     expect { post :unfollow, params: { id: group.id } }
+  #       .to change(group.user_groups, :count).by(-1)
+  #   end
+  # end
 end
