@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show edit update destroy members]
+  before_action :set_group, only: %i[show edit update destroy members follow unfollow]
   before_action :authenticate_user!, except: %i[index show]
 
   def index
@@ -54,6 +54,16 @@ class GroupsController < ApplicationController
 
   def members
     @users = @group.users.page(params[:page])
+  end
+
+  def follow
+    @group.user_groups.create(user_id: current_user.id)
+    redirect_to @group
+  end
+
+  def unfollow
+    @group.user_groups.find_by(user_id: current_user.id).delete
+    redirect_to @group
   end
 
   private

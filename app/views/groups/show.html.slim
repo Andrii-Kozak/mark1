@@ -23,6 +23,8 @@
               = link_to 'Back', groups_path, class: "btn btn-user"
               - if @group.user_moderator?(current_user) || current_user&.admin?
                 = link_to 'Edit Group', edit_group_path(@group), class: "btn btn-user"
+              - unless current_user == @user
+                = render 'groups/follow_unfollow_buttons'
 
         .card.mt-3.p-2[style="min-height: 220px;"]
           = link_to users_group_path, class:"link-user-show" do

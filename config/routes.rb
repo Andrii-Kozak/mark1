@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :groups do
     member do
       get 'members', to: 'groups#members', as: :users
+      get 'follow', to: 'groups#follow', as: :follow
+      get 'unfollow', to: 'groups#unfollow', as: :unfollow
     end
   end
 end
