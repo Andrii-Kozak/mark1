@@ -167,8 +167,8 @@ RSpec.describe GroupsController, type: :controller do
 
     context 'when user is not logged in' do
       it 'follow to group' do
-        expect { post :follow, params: { id: group.id } }
-          .to change(group.user_groups, :count).by(0)
+        post :follow, params: { id: group.id }, xhr: true
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end
@@ -190,9 +190,8 @@ RSpec.describe GroupsController, type: :controller do
 
     context 'when user is not logged in' do
       it 'unfollow to group' do
-        group.user_groups.create(user_id: user.id)
-        expect { delete :unfollow, params: { id: group.id } }
-          .to change(group.user_groups, :count).by(0)
+        delete :unfollow, params: { id: group.id }, xhr: true
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end
