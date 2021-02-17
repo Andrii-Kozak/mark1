@@ -1,4 +1,4 @@
 - if @group.users.include?(current_user)
-  = link_to 'unfollow', unfollow_group_path, class: 'btn btn-user', method: :delete, remote: true
+  = link_to 'unfollow', unfollow_group_path, id: 'follow', class: 'btn btn-user', method: :delete, remote: true
 - else
-  = link_to 'follow', follow_group_path, class: 'btn btn-user', method: :post, remote: true
+  = link_to 'follow', follow_group_path, id: 'follow', class: 'btn btn-user', method: :post, remote: true

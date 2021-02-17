@@ -160,7 +160,7 @@ RSpec.describe GroupsController, type: :controller do
       end
 
       it 'follow to group' do
-        expect { post :follow, params: { id: group.id } }
+        expect { post :follow, params: { id: group.id }, xhr: true }
           .to change(group.user_groups, :count).by(1)
       end
     end
@@ -183,7 +183,7 @@ RSpec.describe GroupsController, type: :controller do
 
       it 'unfollow to group' do
         group.user_groups.create(user_id: user.id)
-        expect { delete :unfollow, params: { id: group.id } }
+        expect { delete :unfollow, params: { id: group.id }, xhr: true }
           .to change(group.user_groups, :count).by(-1)
       end
     end

@@ -31,9 +31,7 @@
             h2.link-user-show.mb-2.mt-2
               | Members
           end
-          .row
-            - @group.users.limit(4).each do |user|
-              = render 'groups/user', user: user
+          = render 'groups/user_members'
       .col-md-8
         .card.mb-3[style="min-height: 782px;"]
           .text-center
