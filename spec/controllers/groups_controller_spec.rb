@@ -45,6 +45,7 @@ RSpec.describe GroupsController, type: :controller do
           expect do
             post :create, params: { group: valid_params }
           end.to change(Group, :count).by(1)
+          expect(response).to have_http_status(:redirect)
         end
 
         it 'redirects to the created group' do
@@ -59,6 +60,7 @@ RSpec.describe GroupsController, type: :controller do
           expect do
             post :create, params: { group: invalid_params }
           end.not_to change(Group, :count)
+          expect(response).to have_http_status(:success)
         end
       end
     end

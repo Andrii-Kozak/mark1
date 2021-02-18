@@ -1,7 +1,6 @@
 - provide(:title, "#{@group.group_name} Members")
 .jumbotron
-  h1
-    | #{@group.group_name} Members
+  h1 #{@group.group_name} Members
   .row
     - @users.each do |member|
       = render 'users/user', user: member
