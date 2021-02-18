@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
+  GROUP_USERS_PREVIEW_AMOUNT = 4
   before_action :set_group, only: %i[show edit update destroy members follow unfollow]
+  before_action :set_group_members, only: %i[show follow unfollow]
   before_action :authenticate_user!, except: %i[index show]
 
   def index
@@ -70,6 +72,10 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+  end
+
+  def set_group_members
+    @group_members = @group.users.ordered_by_id.limit(GROUP_USERS_PREVIEW_AMOUNT)
   end
 
   def group_params

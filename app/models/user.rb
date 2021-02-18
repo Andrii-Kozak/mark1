@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  scope :ordered_by_id, -> { order("id DESC") }
+
   SOCIALS = {
     facebook: 'Facebook',
     google_oauth2: 'Google'
