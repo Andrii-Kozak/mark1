@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @users = User.page(params[:page])
+    @users = User.ordered_by_created_at.page(params[:page])
   end
 
   def show; end

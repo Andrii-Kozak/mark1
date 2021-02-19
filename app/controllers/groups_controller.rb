@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @groups = Group.page(params[:page])
+    @groups = Group.ordered_by_created_at.page(params[:page])
   end
 
   def show; end
@@ -55,7 +55,7 @@ class GroupsController < ApplicationController
   end
 
   def members
-    @users = @group.users.page(params[:page])
+    @users = User.by_joined_to_group(@group).page(params[:page])
   end
 
   def follow
@@ -75,7 +75,7 @@ class GroupsController < ApplicationController
   end
 
   def set_group_members
-    @group_members = @group.users.ordered_by_id.limit(GROUP_USERS_PREVIEW_AMOUNT)
+    @group_members = User.by_joined_to_group(@group).limit(GROUP_USERS_PREVIEW_AMOUNT)
   end
 
   def group_params
