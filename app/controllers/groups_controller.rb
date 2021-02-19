@@ -55,7 +55,7 @@ class GroupsController < ApplicationController
   end
 
   def members
-    @users = User.by_joined_to_group(@group).page(params[:page])
+    @users = User.by_joining_the_group(@group).page(params[:page])
   end
 
   def follow
@@ -75,7 +75,7 @@ class GroupsController < ApplicationController
   end
 
   def set_group_members
-    @group_members = User.by_joined_to_group(@group).limit(GROUP_USERS_PREVIEW_AMOUNT)
+    @group_members = User.by_joining_the_group(@group).limit(GROUP_USERS_PREVIEW_AMOUNT)
   end
 
   def group_params

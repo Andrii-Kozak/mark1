@@ -23,10 +23,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
-  scope :by_joined_to_group, lambda { |group|
-                               joins(:user_groups).where(user_groups: { group_id: group.id })
-                                                  .order('user_groups.updated_at DESC')
-                             }
+  scope :by_joining_the_group, lambda { |group|
+                                 joins(:user_groups).where(user_groups: { group_id: group.id })
+                                                    .order('user_groups.updated_at DESC')
+                               }
 
   mount_uploader :image, ImageUploader
   paginates_per 10
