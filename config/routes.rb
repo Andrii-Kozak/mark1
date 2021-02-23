@@ -9,10 +9,8 @@ Rails.application.routes.draw do
     end
   end
   resources :groups do
-    member do
-      get 'members', to: 'groups#members', as: :users
-      post 'follow', to: 'groups#follow', as: :follow
-      delete 'unfollow', to: 'groups#unfollow', as: :unfollow
+    resources :members, module: :groups do
+      delete 'remove_member', to: 'members#remove_member', as: :remove_member
     end
   end
 end

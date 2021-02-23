@@ -24,14 +24,14 @@
               - if @group.user_moderator?(current_user) || current_user&.admin?
                 = link_to 'Edit Group', edit_group_path(@group), class: "btn btn-user"
               - unless current_user == @user
-                = render 'groups/follow_unfollow_buttons'
+                = render 'groups/members/follow_unfollow_buttons'
 
-        .card.mt-3.p-2[style="min-height: 220px;"]
-          = link_to users_group_path, class:"link-user-show" do
+        .card.mt-3.p-2
+          = link_to group_members_path(group_id: @group.id), class:"link-user-show" do
             h2.link-user-show.mb-2.mt-2
               | Members
           end
-          = render 'groups/user_members'
+          = render 'groups/members/user_members'
       .col-md-8
         .card.mb-3[style="min-height: 782px;"]
           .text-center

@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   GROUP_USERS_PREVIEW_AMOUNT = 4
-  before_action :set_group, only: %i[show edit update destroy members follow unfollow]
-  before_action :set_group_members, only: %i[show follow unfollow]
+  before_action :set_group, only: %i[show edit update destroy]
+  before_action :set_group_members, only: %i[show]
   before_action :authenticate_user!, except: %i[index show]
 
   def index
@@ -52,20 +52,6 @@ class GroupsController < ApplicationController
     @group.destroy
     redirect_to [:groups]
     flash[:warning] = "Group \"#{@group.group_name}\" has been deleted"
-  end
-
-  def members
-    @users = User.by_joining_the_group(@group).page(params[:page])
-  end
-
-  def follow
-    @group.user_groups.create(user_id: current_user.id)
-    render 'groups/follow_btn'
-  end
-
-  def unfollow
-    @group.user_groups.find_by(user_id: current_user.id).delete
-    render 'groups/follow_btn'
   end
 
   private
