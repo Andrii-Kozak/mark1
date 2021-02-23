@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
   resources :groups do
-    resources :members, module: :groups do
+    resources :members, module: :groups, only: %i[index show create destroy] do
       delete 'remove_member', to: 'members#remove_member', as: :remove_member
     end
   end

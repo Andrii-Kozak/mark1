@@ -61,6 +61,7 @@ RSpec.describe User, type: :model do
 
     it 'sort collection by DESC id' do
       expect(described_class.by_joining_the_group(group).last).to eq(user3)
+      expect(described_class.by_joining_the_group(group).first).to eq(user1)
     end
   end
 end
