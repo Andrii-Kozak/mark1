@@ -1,0 +1,4 @@
+- if @group.users.exists?(id: current_user.id)
+  = link_to 'unfollow', group_member_path(group_id: @group.id, id: current_user.id), id: 'follow', class: 'btn btn-user', method: :delete, remote: true
+- else
+  = link_to 'follow', group_members_path(group_id: @group.id), id: 'follow', class: 'btn btn-user', method: :post, remote: true

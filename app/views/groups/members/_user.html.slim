@@ -1,0 +1,19 @@
+.row.centered-form.center-blockm.m-3
+  .container
+    .card-user
+      .user
+        .row
+          .col-lg-5
+            .profile-image
+              - if user.image?
+                = image_tag(user.image.index.url, alt: 'Image', class: 'profile-image')
+              - else
+                = image_tag("default_avatar.png", alt: 'Image', class: 'profile-image')
+          .col-lg-7
+            h4.m-t-0.m-b-0
+              strong = user.full_name
+            span = user.email
+            .row
+              = link_to 'Show', user, class: "btn btn-user-show"
+              - if @group.user_moderator?(current_user) || current_user&.admin?
+                 = link_to 'Delete User', group_member_remove_member_path(group_id: @group.id, member_id: user.id), method: :delete, data: { confirm: 'Are you sure you want to remove user from this group?' }, class: "btn btn-user-show"

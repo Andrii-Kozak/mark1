@@ -45,6 +45,25 @@ RSpec.describe User, type: :model do
       it 'groups' do is_expected.to respond_to(:groups) end
     end
   end
+
+  describe 'by_joining_the_group scope' do
+    let!(:user1) { FactoryBot.create(:user) }
+    let!(:user2) { FactoryBot.create(:user) }
+    let!(:user3) { FactoryBot.create(:user) }
+
+    let!(:group) { FactoryBot.create(:group) }
+
+    before do
+      FactoryBot.create(:user_group, user: user1, group: group, updated_at: 2.hours.ago)
+      FactoryBot.create(:user_group, user: user2, group: group, updated_at: 3.hours.ago)
+      FactoryBot.create(:user_group, user: user3, group: group, updated_at: 4.hours.ago)
+    end
+
+    it 'sort collection by DESC id' do
+      expect(described_class.by_joining_the_group(group).last).to eq(user3)
+      expect(described_class.by_joining_the_group(group).first).to eq(user1)
+    end
+  end
 end
 
 # == Schema Information

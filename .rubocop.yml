@@ -46,7 +46,7 @@ RSpec/HookArgument:
 
 
 RSpec/NestedGroups:
-  Exclude:
+  Max: 5
 
 
 RSpec/NamedSubject:

@@ -1,9 +1,11 @@
 class GroupsController < ApplicationController
+  GROUP_USERS_PREVIEW_AMOUNT = 4
   before_action :set_group, only: %i[show edit update destroy]
+  before_action :set_group_members, only: %i[show]
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @groups = Group.page(params[:page])
+    @groups = Group.ordered_by_created_at.page(params[:page])
   end
 
   def show; end
@@ -56,6 +58,10 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+  end
+
+  def set_group_members
+    @group_members = User.by_joining_the_group(@group).limit(GROUP_USERS_PREVIEW_AMOUNT)
   end
 
   def group_params
