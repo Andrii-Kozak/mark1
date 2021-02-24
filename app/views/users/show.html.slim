@@ -20,7 +20,7 @@
               - if current_user&.id == @user.id or current_user&.admin?
                 = link_to 'Edit User', edit_user_path, class: "btn btn-user"
 
-        .card.mt-3.p-2
+        .card.mt-3.p-2[style="min-height: 339px;"]
           = link_to groups_user_path, class:"link-user-show" do
             h2.link-user-show.mb-2.mt-2
               | My Groups
@@ -29,11 +29,11 @@
             - @user.groups.limit(4).each do |group|
               = render 'users/group', group: group
 
-        .card.mt-3[style="min-height: 220px;"]
+        .card.mt-3[style="min-height: 285px;"]
           h2.link-user-show.mb-2.mt-2
             | My Friends
 
       .col-md-8
-        .card.mb-3[style="min-height: 782px;"]
+        .card.mb-3[style="min-height: 1020px;"]
           .text-center
             | some news
