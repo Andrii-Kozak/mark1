@@ -4,10 +4,10 @@
     ul.list-inline.mt-3
       li.list-inline-item
         i.fas.fa-user
-        |  Mukola Kaban
+      = "Created by #{post.creator.full_name}"
       li.list-inline-item
         i.far.fa-clock
-        |  February 27, 2021
+      = "#{time_ago_in_words(post.created_at)} ago"
     .card-img-top
       - if post.image?
         = image_tag(post.image.post.url, alt: 'Image')

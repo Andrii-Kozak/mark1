@@ -34,5 +34,4 @@
           = render 'groups/members/user_members'
       .col-md-8
         .card[style="min-height: 750px;"]
-          - @group.posts.each do |post|
-            = render 'posts/post', post: post
+          = render partial: 'posts/post', collection: @group.posts, as: :post
