@@ -1,6 +1,8 @@
 FactoryBot.create_list(:user_group, 20, :moderator)
-
-FactoryBot.create_list(:post, 30, :with_image)
+groups = Group.all
+users = User.all
+50.times { FactoryBot.create(:post, :with_image, postable: groups.sample, creator: users.sample) }
+50.times { FactoryBot.create(:post, :with_image, postable: users.sample, creator: users.sample) }
 
 FactoryBot.create(:user,
                   first_name: 'Admin',

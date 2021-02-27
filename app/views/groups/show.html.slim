@@ -26,13 +26,13 @@
               - if current_user
                 = render 'groups/members/follow_unfollow_buttons'
 
-        .card.mt-3.p-2[style="min-height: 285px;"]
+        .card.mt-3.p-2[style="min-height: 339px;"]
           = link_to group_members_path(group_id: @group.id), class:"link-user-show" do
             h2.link-user-show.mb-2.mt-2
               | Members
           end
           = render 'groups/members/user_members'
       .col-md-8
-        .card.mb-3[style="min-height: 750px;"]
-          .text-center
-            | some news
+        .card[style="min-height: 750px;"]
+          - @group.posts.each do |post|
+            = render 'posts/post', post: post

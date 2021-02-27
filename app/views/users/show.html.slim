@@ -29,11 +29,11 @@
             - @user.groups.limit(4).each do |group|
               = render 'users/group', group: group
 
-        .card.mt-3[style="min-height: 285px;"]
+        .card.mt-3[style="min-height: 339px;"]
           h2.link-user-show.mb-2.mt-2
             | My Friends
 
       .col-md-8
-        .card.mb-3[style="min-height: 1020px;"]
-          .text-center
-            | some news
+        .card[style="min-height: 1020px;"]
+          - @user.posts.each do |post|
+            = render 'posts/post', post: post

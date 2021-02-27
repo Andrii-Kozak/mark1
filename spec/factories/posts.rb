@@ -7,6 +7,12 @@ FactoryBot.define do
     trait :with_image do
       image { File.open("#{Rails.root}/app/assets/images/dog.jpg") }
     end
+    trait :for_group do
+      association :postable, factory: :group
+    end
+    trait :for_user do
+      association :postable, factory: :user
+    end
   end
 end
 

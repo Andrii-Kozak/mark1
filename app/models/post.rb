@@ -3,6 +3,10 @@ class Post < ApplicationRecord
   belongs_to :creator, class_name: 'User'
 
   mount_uploader :image, ImageUploader
+
+  # def user_creator?(user)
+  #   creator == user
+  # end
 end
 
 # == Schema Information
