@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = @user.posts.includes(:creator)
+    @posts = @user.posts.with_creator
   end
 
   def edit

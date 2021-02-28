@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :postable, polymorphic: true
   belongs_to :creator, class_name: 'User'
-
+  scope :with_creator, -> { includes(:creator) }
   mount_uploader :image, ImageUploader
 
   # def user_creator?(user)

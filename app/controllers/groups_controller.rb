@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @posts = @group.posts.includes(:creator)
+    @posts = @group.posts.with_creator
   end
 
   def new
