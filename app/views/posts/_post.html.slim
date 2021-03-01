@@ -1,0 +1,14 @@
+.shadow
+  .card-body
+    hr
+    .creator
+      i.far.fa-clock.fa-fw.mr-1
+      | Created by
+      = link_to " #{post.creator.full_name}", user_path(id: post.creator.id), class: 'link-creator'
+      = " #{time_ago_in_words(post.created_at)} ago"
+    .card-img-top
+      - if post.image?
+        = image_tag(post.image.post.url, alt: 'Image')
+    .text-center.mt-3
+      p.lead
+        = post.body

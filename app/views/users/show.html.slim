@@ -26,14 +26,12 @@
               | My Groups
           end
           .row
-            - @user.groups.limit(4).each do |group|
-              = render 'users/group', group: group
+            = render partial: 'users/group', collection: @user.groups.limit(4), as: :group
 
-        .card.mt-3[style="min-height: 285px;"]
+        .card.mt-3[style="min-height: 339px;"]
           h2.link-user-show.mb-2.mt-2
             | My Friends
 
       .col-md-8
-        .card.mb-3[style="min-height: 1020px;"]
-          .text-center
-            | some news
+        .card[style="min-height: 1020px;"]
+          = render partial: 'posts/post', collection: @posts, as: :post

@@ -8,7 +8,9 @@ class GroupsController < ApplicationController
     @groups = Group.ordered_by_created_at.page(params[:page])
   end
 
-  def show; end
+  def show
+    @posts = @group.posts.with_creator
+  end
 
   def new
     @group = Group.new

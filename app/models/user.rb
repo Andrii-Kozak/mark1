@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   has_many :user_groups, dependent: :destroy
   has_many :groups, through: :user_groups
+  has_many :posts, as: :postable, dependent: :destroy
+  has_many :created_posts, class_name: 'Post', foreign_key: 'creator_id', dependent: :destroy, inverse_of: 'creator'
 
   validates :first_name,
             :last_name, presence: true, length: { maximum: 50 }
