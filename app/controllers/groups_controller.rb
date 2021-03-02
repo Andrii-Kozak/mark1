@@ -53,7 +53,7 @@ class GroupsController < ApplicationController
 
   def destroy
     @group.destroy
-    redirect_to [:groups]
+    redirect_to groups_path
     flash[:warning] = "Group \"#{@group.group_name}\" has been deleted"
   end
 
