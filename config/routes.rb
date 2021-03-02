@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   get '/about', to: 'static_pages#about'
   resources :users do
+    resources :posts, only: %i[create]
     member do
       get 'groups', to: 'users#groups', as: :groups
     end
   end
   resources :groups do
+    resources :posts, only: %i[create]
     resources :members, module: :groups, only: %i[index show create destroy] do
       delete 'remove_member', to: 'members#remove_member', as: :remove_member
     end

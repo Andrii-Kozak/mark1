@@ -1,0 +1,15 @@
+= simple_form_for ([postable, @post]) do |f|
+  .card-header-post
+   | Create new post
+  .card-header-post.card-body.card-body-post
+    .form-group
+      .field
+        = f.input :body, as: :text, label: false, input_html: { style: "width: 100%"}
+    .row
+      .col
+        .field
+          = f.file_field :image
+          = f.error :image
+      .col
+        .actions
+          = f.submit "Submit", class: "btn float-right mr-2"

@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @post = @group.posts.new
     @posts = @group.posts.with_creator
   end
 

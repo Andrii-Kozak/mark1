@@ -33,5 +33,6 @@
           end
           = render 'groups/members/user_members'
       .col-md-8
-        .card[style="min-height: 750px;"]
+        .card[style="min-height: 802px;"]
+          = render 'posts/form', { postable: @group }
           = render partial: 'posts/post', collection: @posts, as: :post
