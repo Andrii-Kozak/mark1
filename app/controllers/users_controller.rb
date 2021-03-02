@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @post = @user.posts.new
-    @posts = @user.posts.with_creator
+    @posts = @user.posts.with_creator.ordered_by_created_at
   end
 
   def edit

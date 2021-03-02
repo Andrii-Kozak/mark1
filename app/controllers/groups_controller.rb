@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
 
   def show
     @post = @group.posts.new
-    @posts = @group.posts.with_creator
+    @posts = @group.posts.with_creator.ordered_by_created_at
   end
 
   def new
