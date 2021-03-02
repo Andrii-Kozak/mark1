@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @post = @user.posts.new
     @posts = @user.posts.with_creator
   end
 

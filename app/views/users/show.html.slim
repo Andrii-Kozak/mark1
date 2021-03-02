@@ -34,4 +34,5 @@
 
       .col-md-8
         .card[style="min-height: 1020px;"]
+          = render 'posts/form', { postable: @user }
           = render partial: 'posts/post', collection: @posts, as: :post
