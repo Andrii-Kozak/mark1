@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     if @post.save
       flash[:success] = "Post successfully created"
     else
-      flash[:danger] = @post.errors.messages
+      flash[:danger] = @post.errors.full_messages[0]
     end
     redirect_to @postable
   end
