@@ -1,28 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe Users::PostsController, type: :controller do
+  let!(:user) { create(:user) }
+
+  before { sign_in user }
+
   describe 'Post#Сreate' do
-    let!(:user) { create(:user) }
-    let!(:creator) { create(:user) }
-    let(:new_post) { create(:post, body: "Something", postable: user, creator: creator) }
-    let(:invalid_post) { '' }
+    context 'when parameters is valid' do
+      let(:valid_parameters) { { body: 'Something' } }
 
-    it 'with valid parameters' do
-      post :create, params: { user_id: user.id, post: new_post }
-      expect(user.posts.last).to eq(new_post)
-      expect(response).to have_http_status(:redirect)
+      it 'create new post' do
+        post :create, params: { user_id: user.id, post: valid_parameters }
+        expect(user.posts.last.body).to eq(valid_parameters[:body])
+        expect(response).to have_http_status(:redirect)
+      end
+
+      it 'post was created' do
+        expect do
+          post :create, params: { user_id: user.id, post: valid_parameters }
+        end.to change(Post, :count).by(1)
+      end
     end
 
-    it 'Post#create' do
-      expect do
-        post :create, params: { user_id: user.id, post: new_post }
-      end.to change(Post, :count).by(1)
-    end
+    context 'when parameters is invalid' do
+      let(:invalid_parameters) { { body: 'aa' } }
 
-    it 'Post#create with invalid parameters' do
-      expect do
-        post :create, params: { user_id: user.id, post: invalid_post }
-      end.to change(Post, :count).by(0)
+      it 'does not create new post' do
+        expect do
+          post :create, params: { user_id: user.id, post: invalid_parameters }
+        end.to change(Post, :count).by(0)
+      end
     end
   end
 end

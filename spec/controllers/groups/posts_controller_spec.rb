@@ -1,28 +1,36 @@
 require 'rails_helper'
 
 RSpec.describe Groups::PostsController, type: :controller do
+  let!(:user) { create(:user) }
+  let!(:group) { create(:group) }
+
+  before { sign_in user }
+
   describe 'Post#Сreate' do
-    let!(:group) { create(:group) }
-    let!(:user) { create(:user) }
-    let(:new_post) { create(:post, body: "Something", postable: group, creator: user) }
-    let(:invalid_post) { '' }
+    context 'when parameters is valid' do
+      let(:valid_parameters) { { body: 'Something' } }
 
-    it 'with valid parameters' do
-      post :create, params: { group_id: group.id, post: new_post }
-      expect(group.posts.last).to eq(new_post)
-      expect(response).to have_http_status(:redirect)
+      it 'create new post' do
+        post :create, params: { group_id: group.id, post: valid_parameters }
+        expect(group.posts.last.body).to eq(valid_parameters[:body])
+        expect(response).to have_http_status(:redirect)
+      end
+
+      it 'post was created' do
+        expect do
+          post :create, params: { group_id: group.id, post: valid_parameters }
+        end.to change(Post, :count).by(1)
+      end
     end
 
-    it 'Post#create' do
-      expect do
-        post :create, params: { group_id: group.id, post: new_post }
-      end.to change(Post, :count).by(1)
-    end
+    context 'when parameters is invalid' do
+      let(:invalid_parameters) { { body: 'aa' } }
 
-    it 'Post#create with invalid parameters' do
-      expect do
-        post :create, params: { group_id: group.id, post: invalid_post }
-      end.to change(Post, :count).by(0)
+      it 'does not create new post' do
+        expect do
+          post :create, params: { group_id: group.id, post: invalid_parameters }
+        end.to change(Post, :count).by(0)
+      end
     end
   end
 end
