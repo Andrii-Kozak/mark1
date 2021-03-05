@@ -6,9 +6,9 @@ RSpec.describe Groups::PostsController, type: :controller do
 
   before { sign_in user }
 
-  describe 'Post#Сreate' do
+  describe 'POST#create' do
     context 'when parameters is valid' do
-      let(:valid_parameters) { { body: 'Something' } }
+      let(:valid_parameters) { attributes_for(:post).slice(:body) }
 
       it 'create new post' do
         post :create, params: { group_id: group.id, post: valid_parameters }
@@ -29,7 +29,7 @@ RSpec.describe Groups::PostsController, type: :controller do
       it 'does not create new post' do
         expect do
           post :create, params: { group_id: group.id, post: invalid_parameters }
-        end.to change(Post, :count).by(0)
+        end.not_to change(Post, :count)
       end
     end
   end
