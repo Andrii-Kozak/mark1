@@ -4,9 +4,7 @@ class Post < ApplicationRecord
   scope :with_creator, -> { includes(:creator) }
   mount_uploader :image, ImageUploader
 
-  # def user_creator?(user)
-  #   creator == user
-  # end
+  validates :body, presence: true, length: { minimum: 3, maximum: 100 }
 end
 
 # == Schema Information

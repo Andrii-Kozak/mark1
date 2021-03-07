@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
 
   def show
     @post = @group.posts.new
-    @posts = @group.posts.with_creator
+    @posts = @group.posts.with_creator.ordered_by_created_at
   end
 
   def new
@@ -52,9 +52,9 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @group.destroy
-    redirect_to [:groups]
+    @group.destroy!
     flash[:warning] = "Group \"#{@group.group_name}\" has been deleted"
+    redirect_to groups_path
   end
 
   private
