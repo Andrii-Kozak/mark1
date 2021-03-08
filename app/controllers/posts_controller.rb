@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     if @post
-      @post.destroy
+      @post.destroy!
       flash[:danger] = "Post has been deleted"
       redirect_to @postable
     end
