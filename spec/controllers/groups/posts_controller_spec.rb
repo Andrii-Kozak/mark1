@@ -35,7 +35,7 @@ RSpec.describe Groups::PostsController, type: :controller do
   end
 
   describe 'DELETE#destroy' do
-    let!(:post) { FactoryBot.create(:post, creator: user) }
+    let!(:post) { FactoryBot.create(:post, creator: user, postable: group) }
 
     it 'destroys the post' do
       expect { delete :destroy, params: { group_id: group.id, id: post.id } }

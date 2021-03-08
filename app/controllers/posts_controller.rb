@@ -14,12 +14,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
-    if @post
-      @post.destroy!
-      flash[:danger] = "Post has been deleted"
-      redirect_to @postable
-    end
+    @postable.posts.find_by(id: params[:id]).destroy!
+    flash[:danger] = "Post has been deleted"
+    redirect_to @postable
+    # @post = Post.find_by(id: params[:id])
+    # if @post.destroy!
+    #   flash[:danger] = "Post has been deleted"
+    #   redirect_to @postable
+    # end
   end
 
   private

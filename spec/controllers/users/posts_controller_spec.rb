@@ -34,7 +34,7 @@ RSpec.describe Users::PostsController, type: :controller do
   end
 
   describe 'DELETE#destroy' do
-    let!(:post) { FactoryBot.create(:post, creator: user) }
+    let!(:post) { FactoryBot.create(:post, creator: user, postable: user) }
 
     it 'destroys the post' do
       expect { delete :destroy, params: { user_id: user.id, id: post.id } }
