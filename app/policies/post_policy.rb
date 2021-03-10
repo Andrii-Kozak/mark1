@@ -8,22 +8,25 @@ class PostPolicy
   end
 
   def destroy?
-    if postable.instance_of?(User)
+    case postable
+    when User
       destroy_user_post?
-    elsif postable.instance_of?(Group)
+    when Group
       destroy_group_post?
-    else
-      false
     end
   end
 
   private
 
+  def admin_or_creator?
+    user.admin? || user == post.creator
+  end
+
   def destroy_user_post?
-    user.admin? || postable == user || user == post.creator
+    admin_or_creator? || postable == user
   end
 
   def destroy_group_post?
-    user.admin? || postable.user_moderator?(user) || user == post.creator
+    admin_or_creator? || postable.user_moderator?(user) 
   end
 end
