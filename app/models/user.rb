@@ -4,8 +4,8 @@ class User < ApplicationRecord
     google_oauth2: 'Google'
   }.freeze
 
-  ADMIN = "admin".freeze
-  SIMPLE = "simple".freeze
+  ADMIN = 'admin'.freeze
+  SIMPLE = 'simple'.freeze
 
   ROLES = [ADMIN, SIMPLE].freeze
   enum role: ROLES

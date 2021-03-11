@@ -4,7 +4,7 @@
       - if group.image?
         = image_tag(group.image.show.url, alt: 'Image', class: 'profile-image')
       - else
-        = image_tag("default_group.png", alt: 'Image', class: 'post-img')
+        = image_tag('default_group.png', alt: 'Image', class: 'post-img')
     .card-body
       .d-flex.justify-content-center
         strong = group.group_name
@@ -13,4 +13,4 @@
       p.card-text
         = group.description
       .d-flex.justify-content-center.align-items-center
-        = link_to 'Show', group, class: "btn btn-sm btn-outline-secondary"
+        = link_to 'Show', group, class: 'btn btn-sm btn-outline-secondary'

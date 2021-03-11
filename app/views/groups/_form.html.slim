@@ -19,12 +19,12 @@
                 span.input-group-text
                   i.fas.fa-users-cog
               .field
-                = f.input :description, prepend: "With textarea", as: :text, label: false,
-                                        input_html: { style: "width: 104%"}
+                = f.input :description, prepend: 'With textarea', as: :text, label: false,
+                                        input_html: { style: 'width: 104%'}
             .input-group.form-group
               .input-group-prepend
               .field
-                = f.file_field :image, style: "max-width: 256px"
+                = f.file_field :image, style: 'max-width: 256px'
                 = f.error :image
             .input-group.form-group
               .input-group-prepend
@@ -32,6 +32,6 @@
                 = f.input :group_type, collection: Group::GROUP_TYPE
       .actions
         .row
-          = f.submit "Submit", class: "btn btn-edit"
-          = link_to 'Back', groups_path, class: "btn btn-edit"
-          = link_to 'Delete',  @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-edit"
+          = f.submit 'Submit', class: 'btn btn-edit'
+          = link_to 'Back', groups_path, class: 'btn btn-edit'
+          = link_to 'Delete',  @group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-edit'

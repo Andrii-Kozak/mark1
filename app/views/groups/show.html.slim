@@ -10,29 +10,29 @@
                 - if @group.image?
                   = image_tag(@group.image.show.url, alt: 'Image', class: 'profile-image')
                 - else
-                  = image_tag("default_group.png", alt: 'Image', class: 'post-img')
+                  = image_tag('default_group.png', alt: 'Image', class: 'post-img')
               .mt-3
                 h4
                   strong = @group.group_name
                 h2
                   span = @group.group_type
 
-              .mb-2.mt-1[style="min-height: 100px;"]
+              .mb-2.mt-1[style='min-height: 100px;']
                 = @group.description
             .row
-              = link_to 'Back', groups_path, class: "btn btn-user"
+              = link_to 'Back', groups_path, class: 'btn btn-user'
               - if @group.user_moderator?(current_user) || current_user&.admin?
-                = link_to 'Edit Group', edit_group_path(@group), class: "btn btn-user"
+                = link_to 'Edit Group', edit_group_path(@group), class: 'btn btn-user'
               - if current_user
                 = render 'groups/members/follow_unfollow_buttons'
 
-        .card.mt-3.p-2[style="min-height: 339px;"]
-          = link_to group_members_path(group_id: @group.id), class:"link-user-show" do
+        .card.mt-3.p-2[style='min-height: 339px;']
+          = link_to group_members_path(group_id: @group.id), class: 'link-user-show' do
             h2.link-user-show.mb-2.mt-2
               | Members
           end
           = render 'groups/members/user_members'
       .col-md-8
-        .card[style="min-height: 802px;"]
+        .card[style='min-height: 802px;']
           = render 'posts/form', { postable: @group }
           = render partial: 'posts/post', collection: @posts, as: :post

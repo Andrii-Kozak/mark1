@@ -3,23 +3,23 @@ require 'rails_helper'
 RSpec.describe Group, type: :model do
   let!(:group) { FactoryBot.build(:group, group_name: 'Music', description: 'Oleg Vinnik') }
 
-  context "when valid Factory" do
-    it "has a valid factory" do
+  context 'when valid Factory' do
+    it 'has a valid factory' do
       expect(group).to be_valid
     end
   end
 
   describe 'length is valid' do
     describe 'group name' do
-      it { is_expected.to allow_value("a" * 49).for(:group_name) }
-      it { is_expected.to allow_value("a" * 119).for(:description) }
+      it { is_expected.to allow_value('a' * 49).for(:group_name) }
+      it { is_expected.to allow_value('a' * 119).for(:description) }
     end
   end
 
   describe 'length is invalid' do
     describe 'group name' do
-      it { is_expected.not_to allow_value("a" * 51).for(:group_name) }
-      it { is_expected.not_to allow_value("a" * 121).for(:description) }
+      it { is_expected.not_to allow_value('a' * 51).for(:group_name) }
+      it { is_expected.not_to allow_value('a' * 121).for(:description) }
     end
   end
 

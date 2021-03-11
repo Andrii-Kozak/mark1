@@ -27,6 +27,6 @@ class PostPolicy
   end
 
   def destroy_group_post?
-    admin_or_creator? || postable.user_moderator?(user) 
+    admin_or_creator? || postable.user_moderator?(user)
   end
 end

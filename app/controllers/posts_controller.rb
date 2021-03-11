@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     @post = @postable.posts.build(post_params)
     @post.creator = current_user
     if @post.save
-      flash[:success] = "Post successfully created"
+      flash[:success] = 'Post successfully created'
     else
       flash[:danger] = @post.errors.full_messages.join(', ')
     end
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     authorize @post
     if @post.destroy!
-      flash[:danger] = "Post has been deleted"
+      flash[:danger] = 'Post has been deleted'
       redirect_to @postable
     end
   end

@@ -8,11 +8,11 @@ RSpec.describe UserPolicy, type: :model do
   let!(:record) { create(:user) }
 
   permissions :destroy?, :edit?, :update? do
-    it "allows an admin" do
+    it 'allows an admin' do
       expect(subject).to permit(admin, record)
     end
 
-    it "not allows simple" do
+    it 'not allows simple' do
       expect(subject).not_to permit(simple, record)
     end
   end

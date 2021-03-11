@@ -27,10 +27,8 @@ RSpec/LetSetup:
   Exclude:
     - 'spec/models/user_spec.rb'
 
-
 RSpec/UnspecifiedException:
   Exclude:
-
 
 RSpec/MultipleExpectations:
   Max: 9
@@ -44,10 +42,8 @@ RSpec/FilePath:
 RSpec/HookArgument:
   Exclude:
 
-
 RSpec/NestedGroups:
   Max: 5
-
 
 RSpec/NamedSubject:
   Exclude:
@@ -77,25 +73,25 @@ Metrics/MethodLength:
   Exclude:
     - 'app/helpers/*'
 
-
 Metrics/ClassLength:
   Exclude:
 
-
 Metrics/AbcSize:
   Exclude:
-
 
 Layout/LineLength:
   Max: 120
   Exclude:
 
-
 Layout/EmptyLineAfterGuardClause:
   Exclude:
 
 Style/StringLiterals:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: single_quotes
+  # If `true`, strings which span multiple lines using `\` for continuation must
+  # use the same type of quotes on each line.
+  ConsistentQuotesInMultiline: false
 
 Style/ClassAndModuleChildren:
   Enabled: false
