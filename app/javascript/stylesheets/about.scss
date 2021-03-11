@@ -3,14 +3,9 @@
   padding: 5%;
 }
 
-.my_photo {
-  width: 400px;
-  border-radius: 50%;
-}
-
 .profile p {
-  text-align: justify;
-  width: 70%;
+  text-align: inherit;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -44,7 +39,5 @@
 }
 
 .about-text {
-  font-family: 'Montserrat', sans-serif;
   font-size: 3rem;
-  color: #3f72af;
 }
