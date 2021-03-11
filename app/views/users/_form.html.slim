@@ -23,7 +23,7 @@
             .input-group.form-group
               .input-group-prepend
               .field
-                = f.file_field :image, style: "max-width: 256px"
+                = f.file_field :image, style: 'max-width: 256px'
                 = f.error :image
             .input-group.form-group
               .input-group-prepend
@@ -33,6 +33,6 @@
                 = f.input :email, placeholder: 'email', label: false
       .actions
         .row
-          = f.submit "Submit", class: "btn btn-edit"
-          = link_to 'Back', user_path, class: "btn btn-edit"
-          = link_to 'Delete User',  @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-edit"
+          = f.submit 'Submit', class: 'btn btn-edit'
+          = link_to 'Back', user_path, class: 'btn btn-edit'
+          = link_to 'Delete User',  @user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-edit'

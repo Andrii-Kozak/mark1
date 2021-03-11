@@ -6,7 +6,10 @@
       | Created by
       = link_to " #{post.creator.full_name}", user_path(id: post.creator.id), class: 'link-creator'
       = " #{time_ago_in_words(post.created_at)} ago"
-    .card-img-top
+      - if policy(post).destroy?
+        = link_to polymorphic_path([post.postable, post]), data: { confirm: 'Are you sure?' }, method: :delete
+          i.far.fa-trash-alt.float-right.creator
+    .d-flex.justify-content-center.post-img
       - if post.image?
         = image_tag(post.image.post.url, alt: 'Image')
     .mt-3

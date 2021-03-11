@@ -1,12 +1,12 @@
 header
   .navbar.navbar-dark.bg-dark.navbar-inverse.fixed-top
     .container
-      = link_to image_tag("rails.svg", alt: "Rails logo"), root_path, id: "logo"
+      = link_to image_tag('rails.svg', alt: 'Rails logo'), root_path, id: 'logo'
       nav
         ul.nav.navbar-right.list-inline
           - if user_signed_in?
             li.dropdown
-              a.dropdown-toggle data-toggle="dropdown" href="#"
+              a.dropdown-toggle data-toggle='dropdown' href='#'
                 | Account
                 b.caret
               ul.dropdown-menu.bg-dark

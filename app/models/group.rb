@@ -1,8 +1,8 @@
 class Group < ApplicationRecord
-  MUSIC = "music".freeze
-  FILM = "film".freeze
-  SOCIAL = "social".freeze
-  OTHER = "other".freeze
+  MUSIC = 'music'.freeze
+  FILM = 'film'.freeze
+  SOCIAL = 'social'.freeze
+  OTHER = 'other'.freeze
 
   GROUP_TYPE = [OTHER, MUSIC, FILM, SOCIAL].freeze
   enum group_type: GROUP_TYPE

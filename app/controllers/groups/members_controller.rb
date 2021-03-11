@@ -26,7 +26,7 @@ class Groups::MembersController < ApplicationController
       flash[:warning] = 'User has been removed from group!'
       redirect_to group_members_path
     else
-      flash[:warning] = "Access denied"
+      flash[:warning] = 'Access denied'
       render 'groups/user_members'
     end
   end

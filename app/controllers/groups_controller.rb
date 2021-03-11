@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
 
   def edit
     unless @group.user_moderator?(current_user) || current_user.admin?
-      flash[:warning] = "Access denied"
+      flash[:warning] = 'Access denied'
       render :show
     end
   end
@@ -31,7 +31,7 @@ class GroupsController < ApplicationController
       flash[:success] = "group \"#{@group.group_name}\" created"
       redirect_to @group
     else
-      flash[:warning] = "Invalid parameters"
+      flash[:warning] = 'Invalid parameters'
       render :new
     end
   end
@@ -46,7 +46,7 @@ class GroupsController < ApplicationController
         render :edit
       end
     else
-      flash[:warning] = "Access denied"
+      flash[:warning] = 'Access denied'
       render :show
     end
   end
